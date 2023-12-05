@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite thread-count="1" name="BDD-FE" parallel="tests">
+    <test name="Chrome Test">
+        <parameter name="browser" value="Chrome" /> <!-- Chrome or Firefox or IE or Edge-->
+        <classes>
+            <class name="testRunner.TestRunner"></class>
+        </classes>
+    </test>
+</suite>
