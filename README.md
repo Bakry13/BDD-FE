@@ -40,18 +40,14 @@
 
 19- You can run the project by right click on test runner or testNG.xml and choose run
 
-20- Endpoint class, extraction class are under pages package
+20- You can adjust your running configurations from main/resources/config.properties and test/testRunner/testNG.xml files
 
-21- FE feature files are divided into 4 groups (Login - Dashboard - Common - Create)
+21- Result report is added under test-output/SparkReport
 
-22- You can adjust your running configurations from main/resources/config.properties and test/testRunner/testNG.xml files
-
-23- Result report is added under test-output/SparkReport
-
-24- You can use the below mvn command to run on pipeline and replace the default tags with the tags inside the command
+22- You can use the below mvn command to run on pipeline and replace the default tags with the tags inside the command
 
     mvn test -Dcucumber.filter.tags="@sanity and @FERegression"
 
-25- Below is a simple package flow that describe the project structure
+23- Below is a simple package flow that describe the project structure
 
 ![Screenshot](BDDFramework.JPG)
