@@ -46,9 +46,12 @@
 
 22- You can adjust your running configurations from main/resources/config.properties and test/testRunner/testNG.xml files
 
-23- dataProvider annotation is added to TestRunner class for parallel execution in cucumber and the default number of threads is 10
-But we can adjust the number of running threads under configuration of sureFire plugin, in the value of "dataproviderthreadcount"
+23- Result report is added under test-output/SparkReport
 
-22- You can use the below mvn command to run on pipeline and replace the default tags with the tags inside the command
+24- You can use the below mvn command to run on pipeline and replace the default tags with the tags inside the command
 
     mvn test -Dcucumber.filter.tags="@sanity and @FERegression"
+
+25- Below is a simple package flow that describe the project structure
+
+![Screenshot](BDDFramework.JPG)

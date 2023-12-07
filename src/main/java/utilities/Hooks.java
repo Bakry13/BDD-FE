@@ -7,10 +7,9 @@ import org.openqa.selenium.TakesScreenshot;
 import utilities.actions.BrowserActions;
 
 public class Hooks extends TestBase{
-    BrowserActions browserActions = new BrowserActions();
     //=========================Open the browser then write test environment in the report===================
     @Before(order = 1, value = "@FERegression")
-    public void openBrowser(Scenario scenario) {
+    public void openBrowser() {
         launchBrowser();
     }
     @Before(order = 0, value = "@FERegression")
@@ -22,11 +21,10 @@ public class Hooks extends TestBase{
     @After(order = 1, value = "@FERegression")
     public void takeScreenshot(Scenario scenario) {
         byte[] src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BYTES);
-        //scenario.embed(src,"image/png");
         scenario.attach(src,"image/png", scenario.getName()+ ".png" );
     }
     @After(order = 0, value = "@FERegression")
-    public void quitBrowser(Scenario scenario) {
+    public void quitBrowser() {
         getDriver().quit();
     }
 }
