@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    name: Prepare ubuntu environment
+    name: Tests run
     runs-on: ubuntu-latest
 
     steps:
