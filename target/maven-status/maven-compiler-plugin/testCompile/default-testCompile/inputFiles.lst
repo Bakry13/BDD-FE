@@ -1,3 +1,8 @@
-D:\Engineering\CoursesTrial\Testing\Selenium\BDD-FE\src\test\java\testRunner\TestRunner.java
-D:\Engineering\CoursesTrial\Testing\Selenium\BDD-FE\src\test\java\stepDefinition\GooglePage_StepDef.java
-D:\Engineering\CoursesTrial\Testing\Selenium\BDD-FE\src\test\java\pages\GooglePage.java
+D:\automation\BDD-Framework\src\test\java\api\endpoints\Users.java
+D:\automation\BDD-Framework\src\test\java\api\endpoints\UsersEndpoints.java
+D:\automation\BDD-Framework\src\test\java\testRunner\FailedScenariosRunner.java
+D:\automation\BDD-Framework\src\test\java\api\stepDefinition\Users_StepDef.java
+D:\automation\BDD-Framework\src\test\java\api\APIAssertions.java
+D:\automation\BDD-Framework\src\test\java\testRunner\TestRunner.java
+D:\automation\BDD-Framework\src\test\java\ui\stepDefinition\GooglePage_StepDef.java
+D:\automation\BDD-Framework\src\test\java\ui\pages\GooglePage.java

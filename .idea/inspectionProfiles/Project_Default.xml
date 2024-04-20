@@ -1,0 +1,65 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="AutoCloseableResource" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="METHOD_MATCHER_CONFIG" value="java.util.Formatter,format,java.io.Writer,append,com.google.common.base.Preconditions,checkNotNull,org.hibernate.Session,close,java.io.PrintWriter,printf,java.io.PrintStream,printf,utilities.actions.DBActions,runSQLQuery" />
+    </inspection_tool>
+    <inspection_tool class="VulnerableLibrariesLocal" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="isIgnoringEnabled" value="true" />
+      <option name="ignoredModules">
+        <list>
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+          <option value="BDD-Framework" />
+        </list>
+      </option>
+      <option name="ignoredPackages">
+        <list>
+          <option value="io.netty:netty-handler:4.1.92.Final" />
+          <option value="org.apache.commons:commons-compress:1.21" />
+          <option value="junit:junit:4.10" />
+          <option value="com.google.guava:guava:31.0.1-jre" />
+          <option value="org.apache.pdfbox:fontbox:2.0.4" />
+          <option value="commons-collections:commons-collections:3.2.2" />
+          <option value="net.sourceforge.htmlunit:htmlunit:2.18" />
+          <option value="io.netty:netty-codec-http2:4.1.94.Final" />
+          <option value="net.sourceforge.nekohtml:nekohtml:1.9.22" />
+          <option value="org.eclipse.jetty:jetty-io:9.2.12.v20150709" />
+          <option value="org.eclipse.jetty:jetty-util:9.2.12.v20150709" />
+          <option value="xalan:xalan:2.7.2" />
+          <option value="org.apache.pdfbox:pdfbox:2.0.4" />
+          <option value="xerces:xercesImpl:2.11.0" />
+        </list>
+      </option>
+      <option name="ignoredReasons">
+        <list>
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+          <option value="Not exploitable" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,3 +1,8 @@
-pages\GooglePage.class
+api\endpoints\Users.class
+testRunner\FailedScenariosRunner.class
 testRunner\TestRunner.class
-stepDefinition\GooglePage_StepDef.class
+api\APIAssertions.class
+ui\pages\GooglePage.class
+api\stepDefinition\Users_StepDef.class
+ui\stepDefinition\GooglePage_StepDef.class
+api\endpoints\UsersEndpoints.class

@@ -9,8 +9,11 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 public class TestBase extends AbstractTestNGCucumberTests {
@@ -25,6 +28,23 @@ public class TestBase extends AbstractTestNGCucumberTests {
     FirefoxOptions firefoxOptions = new FirefoxOptions();
     EdgeOptions edgeOptions = new EdgeOptions();
     //===================================Set Drivers Options and capabilities===========================
+    //----------------------Selenium Grid components and Docker containers------------------
+    //We will not need the below method if we will use docker-compose.yml file
+//    @BeforeSuite
+    public void startSeleniumGridComponents()
+    {
+        ConfigUtil.loadTestConfigurations();
+        if (ConfigUtil.seleniumGrid.equalsIgnoreCase("true")){
+            if (ConfigUtil.seleniumGridDocker.equalsIgnoreCase("true")) {
+                String seleniumGridContainers = Paths.mainResources+"/createSeleniumGridContainers.bat";
+                BatchRunner.runBatchFile(seleniumGridContainers);
+            }
+            else{
+                String seleniumGridHub = Paths.mainResources+ "/createSeleniumGridComponents.bat";
+                BatchRunner.runBatchFile(seleniumGridHub);
+            }
+        }
+    }
     //--------------------------------Driver Options------------------------------------
     public void setChromePreferences() {
         try {
@@ -41,7 +61,17 @@ public class TestBase extends AbstractTestNGCucumberTests {
     }
 
     public void getChromeDriver() {
+        if (ConfigUtil.seleniumGrid.equalsIgnoreCase("true")) {
+            //To run using selenium grid
+            try {
+                driver.set(new RemoteWebDriver(new URL(ConfigUtil.hubURL), chromeOptions));
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        else {
             driver.set(new ChromeDriver(chromeOptions));
+        }
     }
     //------------------------------------------Firefox options---------------------------------
     public void setFirefoxCapabilities() {
@@ -52,7 +82,17 @@ public class TestBase extends AbstractTestNGCucumberTests {
     }
 
     public void getFirefoxDriver() {
-        driver.set(new FirefoxDriver(firefoxOptions));
+        if (ConfigUtil.seleniumGrid.equalsIgnoreCase("true")) {
+            //To run using selenium grid
+            try {
+                driver.set(new RemoteWebDriver(new URL(ConfigUtil.hubURL), firefoxOptions));
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        else {
+            driver.set(new FirefoxDriver(firefoxOptions));
+        }
     }
     //-----------------------------------Edge Capabilities----------------------------------
     public void setEdgeCapabilities() {
@@ -63,20 +103,31 @@ public class TestBase extends AbstractTestNGCucumberTests {
             edgeOptions.addArguments("--headless");
     }
 
-
     public void getEdgeDriver() {
-        driver.set(new EdgeDriver(edgeOptions));
+        if (ConfigUtil.seleniumGrid.equalsIgnoreCase("true")) {
+            //To run using selenium grid
+            try {
+                driver.set(new RemoteWebDriver(new URL(ConfigUtil.hubURL), edgeOptions));
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        else {
+            driver.set(new EdgeDriver(edgeOptions));
+        }
     }
 
     //==============================Set BrowserType================================
+    //In case of NOT using parallel execution using cucumber
     @BeforeTest
     @Parameters("browser")
     public void setBrowserType(@Optional("Chrome") String browser) {
-        ConfigUtil.loadTestConfigurations();
         browserType.set(browser);
+        ConfigUtil.loadTestConfigurations();
+        //------------------------------------------------
 //        launchBrowser();
     }
-    //=================================launch Browser================================
+    //=================================Launch Browser================================
     public void launchBrowser(){
         if (getBrowserType().equalsIgnoreCase("Chrome")) {
             setChromePreferences();
@@ -125,9 +176,10 @@ public class TestBase extends AbstractTestNGCucumberTests {
         return environmentURL.get();
     }
     //============================Set Test Environment================================
+    //In case of NOT using parallel execution using cucumber
     @BeforeTest
-    public static void setEnvironment() {
-        String environment = ConfigUtil.environemnt;
+    public void setEnvironment() {
+        String environment = ConfigUtil.environment;
         if (environment.equalsIgnoreCase("test")) {
             environmentURL.set(ConfigUtil.webTestURL);
             testEnvironment.set("test");
@@ -137,7 +189,7 @@ public class TestBase extends AbstractTestNGCucumberTests {
         }
     }
 //=================================Test Cases Annotations=============================
-//   @AfterTest
+   @AfterTest
     public void quitDriver()
     {
         getDriver().quit();

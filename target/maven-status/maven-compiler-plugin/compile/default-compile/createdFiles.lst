@@ -1,9 +1,13 @@
-utilities\ConfigUtil.class
+utilities\actions\APIActions.class
+utilities\AWS.class
 utilities\Assertions.class
-utilities\TestBase.class
-utilities\actions\ElementActions.class
+utilities\Screenshots.class
 utilities\readers\PropertiesReader.class
 utilities\actions\BrowserActions.class
+utilities\Hooks.class
+utilities\ConfigUtil.class
+utilities\actions\DBActions.class
+utilities\TestBase.class
+utilities\actions\ElementActions.class
 utilities\Paths.class
 utilities\readers\JsonTestDataReader.class
-utilities\Hooks.class
