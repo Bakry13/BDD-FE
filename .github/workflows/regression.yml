@@ -34,7 +34,7 @@ jobs:
         run: docker ps
 
       - name: Run regression
-        run: mvn clean test
+        run: mvn clean test -e -x
 
       - name: Generate Allure report
         run: allure generate test-output/allure-results -o test-output/allure-report --clean
