@@ -317,6 +317,12 @@
                         <!--suppress UnresolvedMavenProperty -->
                         <argLine>-javaagent:"${com.browserstack:browserstack-java-sdk:jar}"
  -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
+                        
+                        <!--to resolve fork error in github actions -->
+                        <forkCount>1C</forkCount>
+                        <reuseForks>true</reuseForks>
+                        <forkedProcessTimeoutInSeconds>900</forkedProcessTimeoutInSeconds> <!-- Increase timeout as needed -->
+                        <argLine>-Xmx2048m</argLine> <!-- Adjust heap size as needed -->
                     </configuration>
                     <dependencies>
                         <dependency>
