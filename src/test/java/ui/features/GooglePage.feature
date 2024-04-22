@@ -15,5 +15,4 @@ Feature: Verify Google page
   @TC2
   Scenario: Verify that Google website has the correct title
     Given I open google website
-    When I set "<language>"
     Then I should see Google title has the correct text

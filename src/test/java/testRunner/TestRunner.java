@@ -5,7 +5,7 @@ import utilities.TestBase;
 
 @CucumberOptions(features = {"src/test/java"}
         ,glue = {"ui/stepDefinition", "api/stepDefinition","utilities"}
-        ,tags = ("@FERegression and @TC1") //("@StoryId and @Regression and not @APIRegression")
+        ,tags = ("@FERegression and @TC2") //("@StoryId and @Regression and not @APIRegression")
         ,plugin = {"pretty"
                 ,"html:test-output/DefaultReport/DefaultReport.html"
                 ,"rerun:test-output/rerun.txt"
