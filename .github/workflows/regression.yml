@@ -36,8 +36,8 @@ jobs:
       - name: Run regression
         run: mvn -X -e clean test
 
-      # - name: Generate Allure report
-      #   run: allure generate test-output/allure-results -o test-output/allure-report --clean
+      - name: Generate Allure report
+        run: mvn allure:report
 
       - name: Check files in the test-output folder
         run: ls test-output

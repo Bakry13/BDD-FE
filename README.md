@@ -20,7 +20,7 @@ https://www.oracle.com/eg/java/technologies/downloads/
 #### 2- Download and install IntelliJ throw the below link
 https://www.jetbrains.com/idea/download/?section=windows
 
-#### 1- Download and install latest nodejs through the below link (to use allure report)
+#### 3- Download and install latest nodejs through the below link (to use allure report)
 https://nodejs.org/en/download
 
 ### B. Project readiness
