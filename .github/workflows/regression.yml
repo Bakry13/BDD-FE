@@ -37,12 +37,15 @@ jobs:
         run: mvn -X -e clean install
 
       - name: Generate Allure report
+        if: always()
         run: mvn allure:report
 
       - name: Check files in the test-output folder
+        if: always()
         run: ls test-output
 
       - name: Upload Allure and Extent reports
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: Allure and Extent reports
