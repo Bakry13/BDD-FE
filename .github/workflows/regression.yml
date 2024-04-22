@@ -36,9 +36,9 @@ jobs:
       - name: Run regression
         run: mvn -X -e clean install
 
-      - name: Generate Allure report
-        if: always()
-        run: mvn allure:report
+      # - name: Generate Allure report
+      #   if: always()
+      #   run: mvn allure:report
 
       - name: Check files in the test-output folder
         if: always()
